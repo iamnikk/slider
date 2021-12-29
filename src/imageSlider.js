@@ -4,6 +4,10 @@ import LeftClick from './assets/leftClick.png'
 import RightClick from './assets/rightClick.png'
 import SlideRight from './assets/slideRight.png'
 import SlideLeft from './assets/slideLeft.png'
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from 'react-compare-slider'
 
 const ImageSlider = ({ slides }) => {
   const [current, setCurrent] = useState(0)
@@ -70,7 +74,24 @@ const ImageSlider = ({ slides }) => {
               >
                 {index === current && (
                   <div className='slide-img-container'>
-                    <img
+                    <ReactCompareSlider
+                      itemOne={
+                        <ReactCompareSliderImage
+                          src={slide.image}
+                          srcSet={slide.image}
+                          alt='Image one'
+                        />
+                      }
+                      itemTwo={
+                        <ReactCompareSliderImage
+                          src={slide.image2}
+                          srcSet={slide.image2}
+                          alt='Image two'
+                        />
+                      }
+                    />
+
+                    {/* <img
                       src={slide.image}
                       alt='travel image'
                       className='slide-img-before'
@@ -80,10 +101,10 @@ const ImageSlider = ({ slides }) => {
                       src={slide.image2}
                       alt='travel image'
                       className='slide-img-after'
-                    />
-                    <div
+                    /> */}
+                    {/* <div
                       className='imageHandler'
-                      onMouseMove={slideHandler}
+                      // onMouseMove={slideHandler}
                       style={{ left: `${slideValue}px` }}
                     >
                       <span className='twentytwenty-left-arrow'>
@@ -92,7 +113,7 @@ const ImageSlider = ({ slides }) => {
                       <span className='twentytwenty-right-arrow'>
                         <img src={SlideRight} />
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                 )}
               </div>
@@ -100,6 +121,7 @@ const ImageSlider = ({ slides }) => {
           )
         })}
       </section>
+      <br></br>
     </>
   )
 }

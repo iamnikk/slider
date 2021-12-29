@@ -28,7 +28,7 @@
 }
 
 .slide-img-container img {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   display: block;
 }
